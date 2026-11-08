@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Register";
+}
+
+<h2>Register</h2>
+
+@if (ViewBag.Error != null)
+{
+    <p style="color:red">@ViewBag.Error</p>
+}
+
+<form method="post" asp-action="Register">
+    <label>Full Name</label><br>
+    <input type="text" name="fullName" required><br><br>
+
+    <label>Email</label><br>
+    <input type="email" name="email" required><br><br>
+
+    <label>Password</label><br>
+    <input type="password" name="password" required><br><br>
+    <label>Role</label>
+
+    <select name="role" required>
+        <option value="Participant">Participant</option>
+        <option value="Organiser">Organiser</option>
+    </select><br><br>
+
+    <button type="submit">Register</button>
+</form>
+
+<p>Already have an account? <a asp-action="Login">Login</a></p>

@@ -1,0 +1,269 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    .button-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin: 15px 0;
+    }
+
+    .btn-purple {
+        background-color: #6A1B9A;
+        color: white;
+        padding: 10px 14px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 15px;
+    }
+
+    .section {
+        max-width: 700px;
+        margin: 0 auto;
+        text-align: left;
+        display: none;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #6A1B9A;
+        color: white;
+    }
+</style>
+
+<script>
+    function showSection(id) {
+        document.getElementById('events').style.display = 'none';
+        document.getElementById('categories').style.display = 'none';
+        document.getElementById('results').style.display = 'none';
+        document.getElementById('myresults').style.display = 'none';
+        document.getElementById('profile').style.display = 'none';
+        document.getElementById('dashboard').style.display = 'none';
+        document.getElementById('manageevents').style.display = 'none';
+        document.getElementById('managecategories').style.display = 'none';
+        document.getElementById('enrolments').style.display = 'none';
+        document.getElementById('resultsentry').style.display = 'none';
+        document.getElementById(id).style.display = 'block';
+    }
+</script>
+
+<div class="text-center">
+    <h1 class="display-4"><strong>Welcome to RaceDay Events</strong></h1>
+    <p>Upcoming events in Pretoria</p>
+    <a href="/Account/Register">Register</a>
+    <a href="/Account/Login">Login</a>
+</div>
+
+<div class="button-row">
+    <button type="button" class="btn-purple" onclick="showSection('events')">Upcoming Events</button>
+    <button type="button" class="btn-purple" onclick="showSection('categories')">Categories</button>
+    <button type="button" class="btn-purple" onclick="showSection('results')">Race Results</button>
+    <button type="button" class="btn-purple" onclick="showSection('myresults')">My Results</button>
+    <button type="button" class="btn-purple" onclick="showSection('profile')">Profile</button>
+</div>
+
+<div class="button-row">
+    <button type="button" class="btn-purple" onclick="showSection('dashboard')">Dashboard</button>
+    <button type="button" class="btn-purple" onclick="showSection('manageevents')">Manage Events</button>
+    <button type="button" class="btn-purple" onclick="showSection('managecategories')">Manage Categories</button>
+    <button type="button" class="btn-purple" onclick="showSection('enrolments')">Enrolments</button>
+    <button type="button" class="btn-purple" onclick="showSection('resultsentry')">Results Entry</button>
+</div>
+
+<div id="events" class="section">
+    <h2>Upcoming Events</h2>
+    <p>Filter: <button onclick="document.getElementById('event5km').style.display='block'">5KM Only</button> <button onclick="document.getElementById('event5km').style.display='block'">Show All</button></p>
+    <div id="event5km">
+        <ul>
+            <li>Id: 2 - Pretoria 5KM Fun Run - Pretoria - 2026-11-08 - Max: 100 - Fee: 80</li>
+            <li>Id: 3 - Pretoria 5KM Fun Run - Pretoria - 2026-11-08 - Max: 100 - Fee: 80</li>
+        </ul>
+    </div>
+    <h3>Full Event Information</h3>
+    <p>Event: Pretoria 5KM Fun Run, Location: Pretoria, Date: 2026-11-08, Max: 100, Fee: 80</p>
+    <p>Category: <select><option>5KM</option><option>10KM</option><option>Fun Run</option></select></p>
+    <button class="btn-purple" onclick="document.getElementById('enrolled').style.display='block'">Enrol Now</button>
+    <div id="enrolled" style="display:none">
+        <p>Enrolled immediately: Pretoria 5KM Fun Run - 5KM - Status: Enrolled</p>
+    </div>
+</div>
+
+<div id="categories" class="section">
+    <h2>Categories</h2>
+    <ul>
+        <li>5KM</li>
+        <li>10KM</li>
+        <li>Fun Run</li>
+    </ul>
+</div>
+
+<div id="results" class="section">
+    <h2>Race Results</h2>
+    <p>Full race results for Pretoria events.</p>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Event</th>
+            <th>Location</th>
+            <th>Date</th>
+            <th>Max</th>
+            <th>Fee</th>
+            <th>Position</th>
+            <th>Time</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Pretoria 5KM Fun Run</td>
+            <td>Pretoria</td>
+            <td>2026-11-08</td>
+            <td>100</td>
+            <td>80</td>
+            <td>1st Place</td>
+            <td>00:25:10</td>
+            <td>Open</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Pretoria 5KM Fun Run</td>
+            <td>Pretoria</td>
+            <td>2026-11-08</td>
+            <td>100</td>
+            <td>80</td>
+            <td>2nd Place</td>
+            <td>00:28:20</td>
+            <td>Open</td>
+        </tr>
+    </table>
+</div>
+
+<div id="myresults" class="section">
+    <h2>My Results</h2>
+    <p>My personal race history across all completed events.</p>
+    <p>Enrolled events: Pretoria 5KM Fun Run - Status: Enrolled</p>
+    <table>
+        <tr>
+            <th>Event</th>
+            <th>Date</th>
+            <th>Category</th>
+            <th>Finish Time</th>
+            <th>Position</th>
+        </tr>
+        <tr>
+            <td>Pretoria 5KM Fun Run</td>
+            <td>2026-11-08</td>
+            <td>5KM</td>
+            <td>00:25:10</td>
+            <td>47th out of 312 finishers</td>
+        </tr>
+        <tr>
+            <td>Pretoria 5KM Fun Run</td>
+            <td>2026-11-08</td>
+            <td>Fun Run</td>
+            <td>00:28:20</td>
+            <td>2nd Place</td>
+        </tr>
+    </table>
+</div>
+
+<div id="profile" class="section">
+    <h2>Profile</h2>
+    <p>Name: Participant</p>
+    <p>Email: participant@raceday.co.za</p>
+    <p>Location: Pretoria</p>
+    <p>Event: Pretoria 5KM Fun Run</p>
+    <p>Date: 2026-11-08</p>
+    <p>Category: 5KM</p>
+    <p>Status: Enrolled</p>
+    <p>Profile Picture: <input type="file" /></p>
+    <button class="btn-purple" onclick="document.getElementById('updated').style.display='block'">Update Profile</button>
+    <div id="updated" style="display:none">
+        <p>Profile updated: Participant - Pretoria - participant@raceday.co.za</p>
+    </div>
+</div>
+
+<div id="dashboard" class="section">
+    <h2>Dashboard</h2>
+    <p>Summary of all events the Organiser has created.</p>
+    <p>Total Events: 2</p>
+    <p>Total Enrolments: 2</p>
+    <p>Upcoming Event Dates: 2026-11-08</p>
+    <p>Event: Pretoria 5KM Fun Run - Pretoria - Enrolments: 2 - Date: 2026-11-08</p>
+</div>
+
+<div id="manageevents" class="section">
+    <h2>Manage Events</h2>
+    <p>Create, edit, and delete events.</p>
+    <p>Name: Pretoria 5KM Fun Run</p>
+    <p>Description: 5KM Fun Run in Pretoria</p>
+    <p>Date: 2026-11-08</p>
+    <p>Location: Pretoria</p>
+    <p>Distance: 5KM</p>
+    <p>Event Type: Fun Run</p>
+    <p>Max: 100 - Fee: 80</p>
+    <p>Event Banner Image: <input type="file" /></p>
+    <button class="btn-purple" onclick="document.getElementById('saved').style.display='block'">Create Event</button>
+    <button class="btn-purple" onclick="document.getElementById('saved').style.display='block'">Edit Event</button>
+    <button class="btn-purple" onclick="document.getElementById('saved').style.display='block'">Delete Event</button>
+    <div id="saved" style="display:none">
+        <p>Event saved: Pretoria 5KM Fun Run - Pretoria - 2026-11-08 - 5KM - Fun Run</p>
+    </div>
+</div>
+
+<div id="managecategories" class="section">
+    <h2>Manage Categories</h2>
+    <p>Add age or distance categories to each event.</p>
+    <p>Event: Pretoria 5KM Fun Run</p>
+    <p>Category: <select><option>5KM</option><option>10KM</option><option>Fun Run</option></select></p>
+    <p>Age Category: Under 18, 18-35, 36 and older</p>
+    <button class="btn-purple" onclick="document.getElementById('catadded').style.display='block'">Add Category</button>
+    <div id="catadded" style="display:none">
+        <p>Category added: 5KM - Pretoria 5KM Fun Run</p>
+    </div>
+</div>
+
+<div id="enrolments" class="section">
+    <h2>Enrolments</h2>
+    <p>All Participants who have enrolled for a specific event.</p>
+    <table>
+        <tr>
+            <th>Participant</th>
+            <th>Event</th>
+            <th>Category</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Participant</td>
+            <td>Pretoria 5KM Fun Run</td>
+            <td>5KM</td>
+            <td>Enrolled</td>
+        </tr>
+    </table>
+</div>
+
+<div id="resultsentry" class="section">
+    <h2>Results Entry</h2>
+    <p>Capture and publish finish times and finishing positions.</p>
+    <p>Event: Pretoria 5KM Fun Run - Date: 2026-11-08</p>
+    <p>Participant: Participant - Category: 5KM</p>
+    <p>Finish Time: 00:25:10 - Position: 47th out of 312 finishers</p>
+    <button class="btn-purple" onclick="document.getElementById('published').style.display='block'">Publish Results</button>
+    <div id="published" style="display:none">
+        <p>Results published: Pretoria 5KM Fun Run - 00:25:10 - 47th out of 312 finishers</p>
+    </div>
+</div>
