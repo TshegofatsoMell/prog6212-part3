@@ -15,3 +15,5 @@ RaceDay is a race event web app. Users can register, log in, view races, and boo
 2. Set RaceDay.Mvc as the startup project.
 3. Press F5 to run.
 4. Register a new account, then log in.
+5. VIDEO PRESENTATION LINK PART3 - https://youtu.be/bcwqLrf7FAk
+   
