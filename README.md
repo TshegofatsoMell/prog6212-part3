@@ -46,3 +46,6 @@ Or in terminal:
 ```bash
 dotnet restore
 dotnet run
+
+YOUTUBE LINK FOR VIDEO PRESENTATION
+https://youtu.be/1cr7fpM4OZc
